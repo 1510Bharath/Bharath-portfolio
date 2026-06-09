@@ -23,3 +23,26 @@
     observer.observe(el);
   });
   
+const profileImg = document.getElementById("profileImg");
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".close");
+
+// Open image
+profileImg.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent navbar link action
+    modal.style.display = "block";
+    modalImg.src = profileImg.src;
+});
+
+// Close with X
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close when clicking anywhere on dark background
+modal.addEventListener("click", (e) => {
+    if (e.target !== modalImg) {
+        modal.style.display = "none";
+    }
+});
